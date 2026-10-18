@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/rupee.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <main class="converter-card">
+    <header class="card-header">
+      <h2>Currency Converter</h2>
+      <p>Check real-time foreign currency exchange rates</p>
+    </header>
+
+    <form id="converter-form" onsubmit="event.preventDefault();">
+      <!-- Amount Input -->
+      <div class="input-group">
+        <label for="amount">Amount</label>
+        <div class="input-wrapper">
+          <span class="currency-symbol">$</span>
+          <input type="number" id="amount" value="1" min="0.01" step="any" required placeholder="Enter amount" />
+        </div>
+      </div>
+
+      <!-- Currency Selectors Container -->
+      <div class="conversion-row">
+        <!-- From Currency -->
+        <div class="select-group">
+          <label for="from-currency">From</label>
+          <div class="select-box">
+            <img id="from-flag" src="https://flagsapi.com/US/flat/64.png" alt="USD Flag" class="flag" />
+            <select id="from-currency">
+              <option value="USD" selected>USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Swap Button -->
+        <button type="button" id="swap-btn" class="swap-btn" title="Swap Currencies">
+          <i class="fa-solid = fa-arrows-rotate"></i>
+        </button>
+
+        <!-- To Currency -->
+        <div class="select-group">
+          <label for="to-currency">To</label>
+          <div class="select-box">
+            <img id="to-flag" src="https://flagsapi.com/IN/flat/64.png" alt="INR Flag" class="flag" />
+            <select id="to-currency">
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="INR" selected>INR - Indian Rupee</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Convert Action Button -->
+      <button type="submit" id="convert-btn" class="convert-btn">Get Exchange Rate</button>
+
+      <!-- Results Display Box -->
+      <div class="result-container" id="result-container">
+        <p class="exchange-rate-text" id="exchange-rate-text">1 USD = 83.25 INR</p>
+        <p class="converted-amount" id="converted-amount">83.25 INR</p>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
